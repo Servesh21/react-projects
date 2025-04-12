@@ -4,12 +4,14 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { shortList,list,longList } from './data'
 import Carousel from './Carousel'
+import SlickCarousel from './SlickCarousel'
 function App() {
   const [people,setpeople] = useState(shortList)
 
   return (
     <main>
-      <Carousel />
+      {/* <Carousel /> */}
+      <SlickCarousel/>
     </main>
   )
 }
