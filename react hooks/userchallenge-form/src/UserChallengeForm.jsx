@@ -21,7 +21,7 @@ const UserChallengeForm = () => {
         <form className='form'>
           <h4>Add User</h4>
           <div className='form-row'>
-            <label htmlFor='name' className='form-label'>
+            <label htmlFor='name' value={name} className='form-label'>
               name
             </label>
             <input type='text' className='form-input' id='name' onChange={(e)=>setname(e.target.value)} />
