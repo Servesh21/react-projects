@@ -2,8 +2,11 @@ import React from 'react'
 import axios from 'axios'
 import { useLoaderData } from 'react-router-dom'
 import CockTailList from '../Components/CockTailList'
-export const loader = async () =>{
-  const searchTerm= "a"
+import SearchForm from '../Components/SearchForm'
+export const loader = async ({request}) =>{
+  const url = new URL(request.url);
+
+  const searchTerm=url.searchParams.get('search')|| "a";
   const response = await axios.get(`${cocktailSearchUrl}${searchTerm}`)
   console.log(response)
   return {data:response.data.drinks,searchTerm}
@@ -15,6 +18,7 @@ const Landing = () => {
   
   return (
     <>
+      <SearchForm searchTerm={searchTerm}/>
       <CockTailList drinks={data}/>
     </>
   )
